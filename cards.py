@@ -102,3 +102,4 @@ for z in unpack_json('not js',set_json_comb_test(rng=10000000)):
 # print(pick_cards(cards,7))
 
 # print(table.table_cards)
+#гоу в лигу
