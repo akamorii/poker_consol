@@ -1,0 +1,268 @@
+[
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "unpack_json",
+        "importPath": "combinations",
+        "description": "combinations",
+        "isExtraImport": true,
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "cards_set",
+        "importPath": "combinations",
+        "description": "combinations",
+        "isExtraImport": true,
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "flush_royal",
+        "importPath": "combinations",
+        "description": "combinations",
+        "isExtraImport": true,
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "xor",
+        "importPath": "xor",
+        "description": "xor",
+        "isExtraImport": true,
+        "detail": "xor",
+        "documentation": {}
+    },
+    {
+        "label": "collections",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "collections",
+        "description": "collections",
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "Player",
+        "kind": 6,
+        "importPath": "cards",
+        "description": "cards",
+        "peekOfCode": "class Player:\n    def __init__(self):\n        player_bank = 10\n        hand = [[],[]]\nclass Table:\n    def __init__(self, cards):\n        self.table_cards = pick_cards(cards,2)\n    def add_card(self, cards):\n        self.table_cards.append(pick_cards(cards,1)[0])\nclass Game:",
+        "detail": "cards",
+        "documentation": {}
+    },
+    {
+        "label": "Table",
+        "kind": 6,
+        "importPath": "cards",
+        "description": "cards",
+        "peekOfCode": "class Table:\n    def __init__(self, cards):\n        self.table_cards = pick_cards(cards,2)\n    def add_card(self, cards):\n        self.table_cards.append(pick_cards(cards,1)[0])\nclass Game:\n    def __init__(self, player_count):\n        bank = 0\n        players = []\n        for i in range(player_count):",
+        "detail": "cards",
+        "documentation": {}
+    },
+    {
+        "label": "Game",
+        "kind": 6,
+        "importPath": "cards",
+        "description": "cards",
+        "peekOfCode": "class Game:\n    def __init__(self, player_count):\n        bank = 0\n        players = []\n        for i in range(player_count):\n            players.append(Player())\ndef enter():\n    global cards\n    with open('cards.json', 'r') as f:\n        cards = json.load(f)",
+        "detail": "cards",
+        "documentation": {}
+    },
+    {
+        "label": "enter",
+        "kind": 2,
+        "importPath": "cards",
+        "description": "cards",
+        "peekOfCode": "def enter():\n    global cards\n    with open('cards.json', 'r') as f:\n        cards = json.load(f)\ndef pick_cards(cards, count):\n    final_hand = []\n    for i in range(count):\n        mast_index = random.randrange(0,4)\n        mast_list = cards[masts[mast_index]]\n        chislo_index = random.randrange(0,len(mast_list))    #вторая i четвертой итерации j пропадает массив mast_list",
+        "detail": "cards",
+        "documentation": {}
+    },
+    {
+        "label": "pick_cards",
+        "kind": 2,
+        "importPath": "cards",
+        "description": "cards",
+        "peekOfCode": "def pick_cards(cards, count):\n    final_hand = []\n    for i in range(count):\n        mast_index = random.randrange(0,4)\n        mast_list = cards[masts[mast_index]]\n        chislo_index = random.randrange(0,len(mast_list))    #вторая i четвертой итерации j пропадает массив mast_list\n        # mast_list = ['Q', 'K', 'T']\n        final_hand.append([masts[mast_index], mast_list[chislo_index]])\n        mast_list.pop(chislo_index)\n    return final_hand",
+        "detail": "cards",
+        "documentation": {}
+    },
+    {
+        "label": "set_json_comb_tes",
+        "kind": 2,
+        "importPath": "cards",
+        "description": "cards",
+        "peekOfCode": "def set_json_comb_test (rng,wrt = False):\n    if wrt:\n        with open('combination_test.json','w') as file:\n            set_json_comb_test(rng)\n    test = {\"data\":0}\n    fin_arr = []\n    for j in range(rng):\n        enter()\n        arr = []\n        data = pick_cards(cards,7)",
+        "detail": "cards",
+        "documentation": {}
+    },
+    {
+        "label": "masts",
+        "kind": 5,
+        "importPath": "cards",
+        "description": "cards",
+        "peekOfCode": "masts = [\"krest\", \"cherv\", \"buba\", \"pika\"]\nchisla = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"T\"]\n# for _mast in range(4):\n#     cards[masts[_mast]] = chisla\nclass Player:\n    def __init__(self):\n        player_bank = 10\n        hand = [[],[]]\nclass Table:\n    def __init__(self, cards):",
+        "detail": "cards",
+        "documentation": {}
+    },
+    {
+        "label": "chisla",
+        "kind": 5,
+        "importPath": "cards",
+        "description": "cards",
+        "peekOfCode": "chisla = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"T\"]\n# for _mast in range(4):\n#     cards[masts[_mast]] = chisla\nclass Player:\n    def __init__(self):\n        player_bank = 10\n        hand = [[],[]]\nclass Table:\n    def __init__(self, cards):\n        self.table_cards = pick_cards(cards,2)",
+        "detail": "cards",
+        "documentation": {}
+    },
+    {
+        "label": "zxc",
+        "kind": 5,
+        "importPath": "cards",
+        "description": "cards",
+        "peekOfCode": "zxc = 0\n# print(unpack_json('not js',set_json_comb_test(rng=1000)))\nfor z in unpack_json('not js',set_json_comb_test(rng=10000000)):\n    zxc += 1\n    if flush_royal(z):\n        print(z)\n        print(zxc)\n        break\n# P1 = Player()\n# P2 = Player()",
+        "detail": "cards",
+        "documentation": {}
+    },
+    {
+        "label": "load_comb",
+        "kind": 2,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "def load_comb(name):\n    global cardTest\n    with open(name, 'r') as f:\n        cardTest = json.load(f)\nload_comb('combination_test.json')\ndef unpack_json(js,test):\n    # if js != \"not js\":\n        #  load_comb('combination_test.json')\n    KEY = 'data'\n    \"\"\"костыль. можешь глянуть в json combinations_test, я вроде просто",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "unpack_json",
+        "kind": 2,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "def unpack_json(js,test):\n    # if js != \"not js\":\n        #  load_comb('combination_test.json')\n    KEY = 'data'\n    \"\"\"костыль. можешь глянуть в json combinations_test, я вроде просто\n    не смог сохранить словарь без ключа\"\"\"\n    main_arr_test = [] #массив в который будут помещаться массивы в уже распакованном виде\n    for i in test[KEY]:\n        # print(i)\n        for j in i:",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "para",
+        "kind": 2,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "def para(hand_and_table): # передаем массив из руки и стола\n    arr = []\n    for s in hand_and_table:\n        arr.append(s[1]) #добавление в массив значений\n    for ss in range(0,len(arr)): \n        find_val = arr.pop(ss-ss) #т.к из массива удаляеться значение отнимаем кол во итераций\n        if find_val in arr:\n            return True\n    return False\ndef two_pars (hand_and_table):",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "two_par",
+        "kind": 2,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "def two_pars (hand_and_table):\n    pars_count = 0\n    arr = []\n    for s in hand_and_table:\n        arr.append(s[1]) #добавление в массив значений\n    ss = 0\n    while ss < len(arr):\n        # arr_len = ss-ss\n        find_val = arr.pop(ss-ss) #т.к из массива удаляеться значение отнимаем кол во итераций\n        if find_val in arr: ",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "cards_set",
+        "kind": 2,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "def cards_set(hand_and_table, kareOrSet='set'): #эта функция используеться также для нахождения каре при передачи вторым параметром строки каре\n    cards_count = 0\n    arr = []\n    for s in hand_and_table:\n        arr.append(s[1]) #добавление в массив значений\n    ss = 0\n    finded_para = 0\n    count_elem = collections.Counter(arr)\n    # print(count_elem)\n    kareOrSet = 4 if kareOrSet == 'kare' else 3",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "straight",
+        "kind": 2,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "def straight(hand_and_table, sf='straight'):\n    # pass\n    cards_count = 0\n    arr = []\n    def find_joker(card):\n        if card == 'J':\n            return '11'\n        elif card == 'Q':\n            return '12'\n        elif card == 'K':",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "flush",
+        "kind": 2,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "def flush(hand_and_table, sf='flush'):\n    cards_count = 0\n    arr = []\n    for s in hand_and_table:\n        arr.append(s[0]) #добавление в массив мастей\n    count_elem = collections.Counter(arr)\n    for m, v in count_elem.items():\n        # print (v)\n        if count_elem[m] > 4:\n            if sf != flush:",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "full_haus",
+        "kind": 2,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "def full_haus(hand_and_table):\n    cards_count = 0\n    arr = []\n    arr \n    for s in hand_and_table:\n        arr.append(s[1]) #добавление в массив значений\n    count_elem = collections.Counter(arr)\n    # print(count_elem)\n    # print(count_elem)\n    for i in count_elem:",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "straight_flush",
+        "kind": 2,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "def straight_flush(hand_and_table):\n    if flush(hand_and_table):\n        mast_arr = flush(hand_and_table,'zxc')\n        main_mast = mast_arr[-1]\n        mast_arr.pop(-1)\n        i = 0\n        while i < len(hand_and_table):\n            if hand_and_table[i][0] != main_mast:\n                hand_and_table.pop(i)\n                i -= 1",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "flush_royal",
+        "kind": 2,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "def flush_royal(hand_and_table):\n    if straight_flush(hand_and_table) and straight(hand_and_table, 'zxc')[0] == 10:\n        return True\n    return False\n# for tbl in main_arr_test: # прогоняем тесты\n#     print(tbl)\n#     print(f'para: {para(tbl)}\\n two_pars: {two_pars(tbl)}\\n set: {cards_set(tbl)}\\n straight: {straight(tbl)}\\n flush: {flush(tbl)}\\n full_haus: {full_haus(tbl)}\\n kare: {cards_set(tbl, 'kare')}\\n straight_flush: {straight_flush(tbl)}\\n flush_royal: {flush_royal(tbl)}')\n# print (EXAMPLE_TABLE_2)\n# print(straight(EXAMPLE_TABLE_2))",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "main_arr_test",
+        "kind": 5,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "main_arr_test = unpack_json('not js', cardTest)\nEXAMPLE_TABLE = main_arr_test[3] #[['pika', 'J'], ['cherv', '3'], ['cherv', '5'], ['pika', '7'], ['pika', 'T'], ['krest', '7'], ['buba', '6']]\n# EXAMPLE_TABLE[2][1] = 'J'\n\"\"\"выбор массива из 7 карт/ стол + рука\"\"\"\nEXAMPLE_TABLE_2 = [['krest', '10'], ['pika', 'T'], ['cherv', 'K'], ['krest', '6'], ['buba', '8'], ['krest', 'Q'], ['pika', 'J']]\n# вернет true если в массиве есть одинаковые значения\ndef para(hand_and_table): # передаем массив из руки и стола\n    arr = []\n    for s in hand_and_table:\n        arr.append(s[1]) #добавление в массив значений",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "EXAMPLE_TABLE",
+        "kind": 5,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "EXAMPLE_TABLE = main_arr_test[3] #[['pika', 'J'], ['cherv', '3'], ['cherv', '5'], ['pika', '7'], ['pika', 'T'], ['krest', '7'], ['buba', '6']]\n# EXAMPLE_TABLE[2][1] = 'J'\n\"\"\"выбор массива из 7 карт/ стол + рука\"\"\"\nEXAMPLE_TABLE_2 = [['krest', '10'], ['pika', 'T'], ['cherv', 'K'], ['krest', '6'], ['buba', '8'], ['krest', 'Q'], ['pika', 'J']]\n# вернет true если в массиве есть одинаковые значения\ndef para(hand_and_table): # передаем массив из руки и стола\n    arr = []\n    for s in hand_and_table:\n        arr.append(s[1]) #добавление в массив значений\n    for ss in range(0,len(arr)): ",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "EXAMPLE_TABLE_2",
+        "kind": 5,
+        "importPath": "combinations",
+        "description": "combinations",
+        "peekOfCode": "EXAMPLE_TABLE_2 = [['krest', '10'], ['pika', 'T'], ['cherv', 'K'], ['krest', '6'], ['buba', '8'], ['krest', 'Q'], ['pika', 'J']]\n# вернет true если в массиве есть одинаковые значения\ndef para(hand_and_table): # передаем массив из руки и стола\n    arr = []\n    for s in hand_and_table:\n        arr.append(s[1]) #добавление в массив значений\n    for ss in range(0,len(arr)): \n        find_val = arr.pop(ss-ss) #т.к из массива удаляеться значение отнимаем кол во итераций\n        if find_val in arr:\n            return True",
+        "detail": "combinations",
+        "documentation": {}
+    },
+    {
+        "label": "xor",
+        "kind": 2,
+        "importPath": "xor",
+        "description": "xor",
+        "peekOfCode": "def xor(str1, str2):\n    return bool(str1) != bool(str2)",
+        "detail": "xor",
+        "documentation": {}
+    }
+]
