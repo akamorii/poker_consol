@@ -13,19 +13,25 @@ def unpack_json(js,test):
     # if js != "not js":
         #  load_comb('combination_test.json')
     KEY = 'data'
-    main_arr_test = []
+    """костыль. можешь глянуть в json combinations_test, я вроде просто
+    не смог сохранить словарь без ключа"""
+    main_arr_test = [] #массив в который будут помещаться массивы в уже распакованном виде
+    
     for i in test[KEY]:
         # print(i)
         for j in i:
             # print(j)
-            main_arr_test.append(j)
+            main_arr_test.append(j) 
     return main_arr_test
+"""крч это просто функция для распаковки, можно особо не вдаваться в ее работу
+правда если измениться вид json придется менять и функцию"""
 
 main_arr_test = unpack_json('not js', cardTest)
 
 
 EXAMPLE_TABLE = main_arr_test[3] #[['pika', 'J'], ['cherv', '3'], ['cherv', '5'], ['pika', '7'], ['pika', 'T'], ['krest', '7'], ['buba', '6']]
 # EXAMPLE_TABLE[2][1] = 'J'
+"""выбор массива из 7 карт/ стол + рука"""
 EXAMPLE_TABLE_2 = [['krest', '10'], ['pika', 'T'], ['cherv', 'K'], ['krest', '6'], ['buba', '8'], ['krest', 'Q'], ['pika', 'J']]
 
 
@@ -36,7 +42,7 @@ def para(hand_and_table): # передаем массив из руки и ст�
         arr.append(s[1]) #добавление в массив значений
     for ss in range(0,len(arr)): 
         find_val = arr.pop(ss-ss) #т.к из массива удаляеться значение отнимаем кол во итераций
-        if find_val in arr: 
+        if find_val in arr:
             return True
     return False
 
