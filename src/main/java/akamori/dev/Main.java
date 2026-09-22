@@ -1,7 +1,10 @@
 package akamori.dev;
 
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+
 
 import java.io.IOException;
 
@@ -9,18 +12,22 @@ import java.io.IOException;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        try (Terminal terminal = new DefaultTerminalFactory().createTerminal()) {
-            // Terminal functionality here
-            terminal.putCharacter('H');
-            terminal.putCharacter('e');
-            terminal.putCharacter('l');
-            terminal.putCharacter('l');
-            terminal.putCharacter('o');
-            terminal.flush();
-//            while (true);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            try (Terminal terminal = new DefaultTerminalFactory().createTerminal()) {
+                // Terminal functionality here
+                Card card = new Card(terminal, "spades");
+                card.drawCard(new int[]{10, 10});
+                terminal.flush();
+                while (true){
+                    KeyStroke keystroke = terminal.readInput();
+                    if (keystroke.getKeyType() == KeyType.Escape) {
+                        break;
+                    }
+                }
+            } catch (IOException e) {
+                System.out.println("завершение...");
+                throw new RuntimeException(e);
 
-        }
+            }
     }
 }
+
