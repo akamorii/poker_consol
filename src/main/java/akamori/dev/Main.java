@@ -14,8 +14,8 @@ public class Main {
     static void main() {
             try (Terminal terminal = new DefaultTerminalFactory().createTerminal()) {
                 // Terminal functionality here
-                Card card = new Card(terminal, "spades");
-                card.drawCard(new int[]{10, 10});
+                Card card = new Card(terminal, "hearts");
+                card.drawCard(new int[]{10, 10}, card.suit.getCardElements());
                 terminal.flush();
                 while (true){
                     KeyStroke keystroke = terminal.readInput();
@@ -27,6 +27,8 @@ public class Main {
                 System.out.println("завершение...");
                 throw new RuntimeException(e);
 
+            } catch (Suit.IncorrectSuit e) {
+                throw new RuntimeException(e);
             }
     }
 }
