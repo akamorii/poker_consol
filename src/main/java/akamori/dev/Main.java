@@ -20,7 +20,7 @@ public class Main {
 //            while (true);
         } catch (IOException e) {
             throw new RuntimeException(e);
-//            test
+
         }
     }
 }
